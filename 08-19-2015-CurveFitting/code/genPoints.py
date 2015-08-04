@@ -10,26 +10,36 @@ def randSign():
   return -1
 
 #return a tuple (m, b) for y = mx + b
-def equation():
-  return (randSign()*np.random.rand()*10, randSign()*np.random.rand()*10)
+def equation(n):
+  r = []
+  for _ in xrange(n+1):
+    r.append(randSign()*np.random.rand()*10)
+  return r
+  #return (randSign()*np.random.rand()*10, randSign()*np.random.rand()*10)
 
 #generate some number of points distributed around a line according to a normal
-def genPoints(n, info, mu, std):
-  (m, b) = info
+def genPoints(n, info, mu, std, xRange):
+  #(m, b) = info
+  info = zip(info, range(len(info)))
   points = []
-  xPoints = np.random.uniform(-10, 10, n)
+  xPoints = np.random.uniform(xRange[0], xRange[1], n)
   for x in xPoints:
-    y = (m * x + b) #+ np.random.normal(loc=mu, scale=std)
+    #y = (m * x + b) #+ np.random.normal(loc=mu, scale=std)
+    y = sum([a*np.power(x, i) for (a, i) in info])
     print(y)
     y = y + np.random.normal(loc=mu, scale=std)
     print(y)
     points.append((x, y))
   return points
 
-(m, b) = equation()
-p = genPoints(100, (m, b), 0, 10)
-with open('random_points.csv', 'w') as Out:
-  Out.write('m: '+str(m)+', b: '+str(b)+'\n')
+n = 3
+#(m, b) = equation()
+m = equation(n)
+#need to be careful with the standard deviation for the error
+p = genPoints(100, tuple(m), 0, np.power(10,1.75*n), [-50,50])
+with open('random_points_'+str(n)+'.csv', 'w') as Out:
+  #Out.write('m: '+str(m)+', b: '+str(b)+'\n')
+  Out.write('coefficients: '+str(m)+'\n')
   for (x,y) in p:
     Out.write(str(x)+','+str(y)+'\n')
 
