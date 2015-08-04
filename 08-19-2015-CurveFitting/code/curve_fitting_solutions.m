@@ -111,8 +111,8 @@ xlabel('X')
 ylabel('Y')
 
 %now use fit on the third degree polynomial
-func = fittype( @(a,b,c,d,x) a*x.^3+b*x.^2+c*x+d )
-options = fitoptions('Method', 'NonlinearLeastSquares', 'StartPoint', [-8, -31, 559, 39219])
+func = fittype( @(a,b,c,d,x) a*x.^3+b*x.^2+c*x+d, 'independent', {'x'} )
+options = fitoptions('Method', 'NonlinearLeastSquares', 'StartPoint', [0 0 0 0], 'Lower', [-10 -10 -10 -10], 'Upper', [10 10 10 10])
 [theFit3, gof3] = fit(X, Y, func, options);
 theFit3
 gof3
