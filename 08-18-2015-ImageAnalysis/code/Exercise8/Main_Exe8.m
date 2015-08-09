@@ -21,6 +21,10 @@ for i=1:nFiles
    means(i) = MeanV;
    stdevs(i) = StdV;
 end
+% GEnerate a 2D array
+my2Darray = [ means, stdevs ] ;
+% save  the 2D array
+csvwrite('MeanStdevTime.csv',my2Darray);
 
 figure()
 fontsize=20;
