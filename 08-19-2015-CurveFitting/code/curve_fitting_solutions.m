@@ -204,7 +204,7 @@ ylabel('Y')
 %%
 
 %generate a list of random x coordinates from Uniform(-5,5)
-%these must be column vectors for polyfit
+%these must be column vectors for fit
 randX = unifrnd(-5,5,100,1);
 randY = zeros(100,1);
 for i=1:100

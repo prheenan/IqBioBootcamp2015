@@ -155,7 +155,7 @@ figure(8)
 %%
 
 %generate a list of random x coordinates from Uniform(-5,5)
-%these must be column vectors for polyfit
+%these must be column vectors for fit
 randX = 
 randY = 
 
