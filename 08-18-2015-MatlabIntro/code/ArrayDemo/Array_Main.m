@@ -46,10 +46,10 @@ disp('Math');
 disp(Add)
 % multiplication, subtraction, exponentiation do *not*
 % this next line is *broken*
-Multiplication = OtherNumbersILike*MyNumArray;
+ Multiplication = OtherNumbersILike .* MyNumArray;
 % Need to use *elementwise* operations, like
 % '.*' for multiplication or './' for division
 % Unless you are doing linear algebra, just
 % *always* use elementwise operations
-Multiplication = OtherNumbersILike .* MyNumArray;
+Multiplication = OtherNumbersILike ./ MyNumArray;
 disp(Multiplication);

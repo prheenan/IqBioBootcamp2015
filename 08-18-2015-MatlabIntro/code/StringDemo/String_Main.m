@@ -22,6 +22,6 @@ end
 % '%s': 'Replace me with a string when printing'
 % '%d': 'Replace me with a number when printing'
 fprintf('\n\n****Using formatted print****\n\n\n');
-fprintf('Our Strings are %s\n%s\n',HelloByList,HelloByStr);
-fprintf('Are they equal?\n %d\n',AreEqual);
+fprintf('Our Strings are %s,%s',HelloByList,HelloByStr);
+fprintf('Are they equal?\n %d\n',AreEqual,4);
 fprintf('The %drd character of %s is %s\n',3,HelloByList,HelloByList(3));
